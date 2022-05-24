@@ -5,7 +5,7 @@ import { ConfigService } from '@nestjs/config'
 import { Logger } from '@nestjs/common'
 
 async function bootstrap() {
-  const logger = new Logger('Microservice')
+  const logger = new Logger('Stories Microservice')
 
   const app = await NestFactory.create(AppModule)
 
@@ -13,7 +13,7 @@ async function bootstrap() {
     transport: Transport.RMQ,
     options: {
       urls: ['amqp://localhost:5672'],
-      queue: 'started_queue',
+      queue: 'story_queue',
       queueOptions: {
         durable: false
       }
